@@ -8,6 +8,7 @@ app.use(express.json());
 
 // In-memory storage
 let events = [];
+console.log(events);
 
 // Keyword lists for categorization
 const keywords = {
@@ -35,13 +36,19 @@ app.post("/events", (req, res) => {
 
   // Basic validation
   if (!title || typeof title !== "string" || title.trim() === "") {
-    return res.status(400).json({ error: "Title is required and must be a non-empty string." });
+    return res
+      .status(400)
+      .json({ error: "Title is required and must be a non-empty string." });
   }
   if (!date || isNaN(Date.parse(date))) {
-    return res.status(400).json({ error: "Date is required and must be valid." });
+    return res
+      .status(400)
+      .json({ error: "Date is required and must be valid." });
   }
   if (!time || !/^\d{1,2}:\d{2}$/.test(time)) {
-    return res.status(400).json({ error: "Time is required and must be in HH:MM format." });
+    return res
+      .status(400)
+      .json({ error: "Time is required and must be in HH:MM format." });
   }
 
   const category = categorizeEvent(title, notes);
@@ -60,6 +67,17 @@ app.post("/events", (req, res) => {
   events.push(newEvent);
 
   return res.status(201).json(newEvent);
+});
+
+// GET /events - get all events sorted by date and time
+app.get("/events", (_req, res) => {
+  const sortedEvents = events.slice().sort((a, b) => {
+    const dateA = new Date(`${a.date}T${a.time}`);
+    const dateB = new Date(`${b.date}T${b.time}`);
+    return dateA - dateB;
+  });
+
+  res.status(200).json(sortedEvents);
 });
 
 app.listen(PORT, () => {
