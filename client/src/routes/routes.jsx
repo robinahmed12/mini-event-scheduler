@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../Layouts/MainLayout";
 import Home from "../pages/Home/Home";
+import AddEventForm from "../pages/AddEventForm/AddEventForm";
 
 export const router = createBrowserRouter([
   {
@@ -10,6 +11,10 @@ export const router = createBrowserRouter([
         {
             index: true,
             element: <Home/>
+        },
+        {
+            path: "/create",
+            element: <AddEventForm/>
         }
     ]
   },
