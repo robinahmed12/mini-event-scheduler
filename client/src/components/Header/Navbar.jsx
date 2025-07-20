@@ -38,28 +38,22 @@ const Navbar = () => {
 
   const navItems = [
     {
-      name: "Dashboard",
+      name: "Home",
       path: "/",
       icon: <HiOutlineHome className="w-5 h-5" />,
       color: "text-[#7C3AED]",
-    },
-    {
-      name: "Events",
-      path: "/events",
-      icon: <HiOutlineAdjustments className="w-5 h-5" />,
-      color: "text-[#3B82F6]",
-    },
-    {
-      name: "Calendar",
-      path: "/calendar",
-      icon: <HiOutlineCalendar className="w-5 h-5" />,
-      color: "text-[#EC4899]",
     },
     {
       name: "Create Event",
       path: "/create",
       icon: <HiOutlinePlusCircle className="w-5 h-5" />,
       color: "text-[#F59E0B]",
+    },
+    {
+      name: "Events",
+      path: "/events",
+      icon: <HiOutlineAdjustments className="w-5 h-5" />,
+      color: "text-[#3B82F6]",
     },
   ];
 
