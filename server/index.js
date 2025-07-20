@@ -96,6 +96,22 @@ app.put("/events/:id", (req, res) => {
   res.status(200).json({ message: "Event archived successfully.", event });
 });
 
+// DELETE /events/:id - delete an event
+app.delete("/events/:id", (req, res) => {
+  const { id } = req.params;
+  const eventId = parseInt(id);
+
+  const index = events.findIndex((ev) => ev.id === eventId);
+
+  if (index === -1) {
+    return res.status(404).json({ error: "Event not found." });
+  }
+
+  events.splice(index, 1); // remove event from array
+
+  res.status(200).json({ message: "Event deleted successfully." });
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
