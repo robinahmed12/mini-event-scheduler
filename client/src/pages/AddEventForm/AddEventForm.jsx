@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-
 import {
   Calendar,
   Clock,
@@ -10,6 +9,7 @@ import {
   CheckCircle2,
 } from "lucide-react";
 import useAxios from "../../hooks/useAxios.jsx";
+import Swal from "sweetalert2";
 
 const AddEventForm = ({ onSubmit }) => {
   const axiosInstance = useAxios();
@@ -20,7 +20,6 @@ const AddEventForm = ({ onSubmit }) => {
     formState: { errors, isSubmitting },
   } = useForm();
   const [newCategory, setNewCategory] = useState("");
-  const [showSuccess, setShowSuccess] = useState(false);
 
   const onSubmitForm = async (data) => {
     try {
@@ -35,37 +34,31 @@ const AddEventForm = ({ onSubmit }) => {
         onSubmit(createdEvent);
       }
 
-      setShowSuccess(true);
-      setTimeout(() => {
-        setShowSuccess(false);
-        reset();
-        setNewCategory("");
-      }, 2000);
+      // ✅ SweetAlert on success
+      Swal.fire({
+        icon: "success",
+        title: "Event Created!",
+        text: "Your event has been successfully added.",
+        confirmButtonColor: "#2563eb", // Tailwind blue-600
+      });
+
+      reset();
+      setNewCategory("");
     } catch (error) {
       console.error(
         "Error creating event:",
         error.response?.data || error.message
       );
+
+      // show error alert
+      Swal.fire({
+        icon: "error",
+        title: "Oops!",
+        text: "Failed to create event. Please try again.",
+        confirmButtonColor: "#ef4444", // Tailwind red-500
+      });
     }
   };
-
-  if (showSuccess) {
-    return (
-      <div className="event-form-container max-w-md mx-auto p-6">
-        <div className="card rounded-xl p-8 text-center">
-          <div className="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center">
-            <CheckCircle2 className="w-8 h-8 text-green-600" />
-          </div>
-          <h3 className="text-xl font-semibold text-gray-800 mb-2">
-            Event Created!
-          </h3>
-          <p className="text-gray-600">
-            Your event has been successfully added.
-          </p>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <div className="event-form-container max-w-2xl mx-auto p-4 sm:p-6">
