@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxios from "../../hooks/useAxios.jsx";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Swal from "sweetalert2";
 
 const Events = () => {
   const axiosInstance = useAxios();
@@ -29,8 +30,6 @@ const Events = () => {
     },
   });
   console.log(events);
-  
-
 
   const handleArchive = async (id) => {
     try {
@@ -38,6 +37,40 @@ const Events = () => {
       await refetch();
     } catch (error) {
       console.error("Failed to archive event:", error);
+    }
+  };
+
+  const handleDelete = async (id) => {
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#e11d48", // red-600
+      cancelButtonColor: "#6b7280", // gray-500
+      confirmButtonText: "Yes, delete it!",
+    });
+
+    if (!result.isConfirmed) return;
+
+    try {
+      await axiosInstance.delete(`/events/${id}`);
+      await refetch();
+
+      // Show success alert
+      Swal.fire({
+        title: "Deleted!",
+        text: "The event has been deleted.",
+        icon: "success",
+        confirmButtonColor: "#7C3AED",
+      });
+    } catch (error) {
+      console.error("Failed to delete event:", error);
+      Swal.fire({
+        title: "Error!",
+        text: "Failed to delete the event.",
+        icon: "error",
+      });
     }
   };
 
@@ -113,8 +146,6 @@ const Events = () => {
       </div>
     );
   }
-
-  
 
   return (
     <div className="min-h-screen pt-20 bg-gradient-to-br from-gray-50 via-white to-purple-50/30">
@@ -265,7 +296,10 @@ const Events = () => {
                         📦 {event.archived ? "Archived" : "Archive"}
                       </button>
 
-                      <button className="flex-1 px-4 py-2 rounded-xl font-semibold bg-gradient-to-r from-red-500 to-red-600 text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition">
+                      <button
+                        onClick={() => handleDelete(event.id)}
+                        className="flex-1 px-4 py-2 rounded-xl font-semibold bg-gradient-to-r from-red-500 to-red-600 text-white shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition"
+                      >
                         🗑️ Delete
                       </button>
                     </div>
