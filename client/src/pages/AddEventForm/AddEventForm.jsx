@@ -377,7 +377,7 @@ const AddEventForm = ({ onSubmit }) => {
         >
           <p className="text-sm text-gray-600">
             Your events will be automatically organized and easily accessible in
-            your dashboard
+            Events
           </p>
         </div>
       </div>
