@@ -80,6 +80,22 @@ app.get("/events", (_req, res) => {
   res.status(200).json(sortedEvents);
 });
 
+// PUT /events/:id - archive an event
+app.put("/events/:id", (req, res) => {
+  const { id } = req.params;
+  const eventId = parseInt(id);
+
+  const event = events.find((ev) => ev.id === eventId);
+
+  if (!event) {
+    return res.status(404).json({ error: "Event not found." });
+  }
+
+  event.archived = true;
+
+  res.status(200).json({ message: "Event archived successfully.", event });
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
