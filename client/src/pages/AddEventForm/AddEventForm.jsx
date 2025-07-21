@@ -40,6 +40,7 @@ const AddEventForm = ({ onSubmit }) => {
       once: true,
       offset: 100,
     });
+    document.title = "Create-Event"
   }, []);
 
   const getCategoryIcon = (category) => {

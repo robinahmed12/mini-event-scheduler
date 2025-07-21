@@ -82,7 +82,7 @@ const Navbar = () => {
               </div>
               <div className="absolute -top-1 -right-1 w-4 h-4 bg-[#F59E0B] rounded-full opacity-80 group-hover:scale-110 transition-transform duration-300"></div>
             </div>
-            <div className="hidden sm:block">
+            <div className=" sm:block">
               <span className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-[#7C3AED] to-[#EC4899] bg-clip-text text-transparent">
                 EventFlow
               </span>

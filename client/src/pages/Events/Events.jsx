@@ -22,6 +22,7 @@ const Events = () => {
       once: true,
       offset: 50,
     });
+    document.title = "Events"
   }, []);
 
   const {
