@@ -9,7 +9,9 @@ const Home = () => {
   return (
     <>
       <div className="pt-20">
-        <Banner />
+        <Section>
+          <Banner />
+        </Section>
 
         <Section>
           <KeyFeatures />
