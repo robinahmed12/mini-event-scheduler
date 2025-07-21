@@ -1,11 +1,19 @@
-require("dotenv").config(); 
+require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const categorizeEvent = require("./utilities/categorizeEvent");
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-app.use(cors());
+app.use(
+  cors({
+    origin: [
+      "http://localhost:5173",
+      "https://eventflow-f24fa.web.app",
+      "https://eventflow-f24fa.firebaseapp.com",
+    ],
+  })
+);
 app.use(express.json());
 
 let events = []; // In-memory storage
@@ -45,9 +53,12 @@ app.post("/events", (req, res) => {
 
 // --- Get All Events ---
 app.get("/events", (_req, res) => {
-  const sorted = events.slice().sort((a, b) =>
-    new Date(`${a.date}T${a.time}`) - new Date(`${b.date}T${b.time}`)
-  );
+  const sorted = events
+    .slice()
+    .sort(
+      (a, b) =>
+        new Date(`${a.date}T${a.time}`) - new Date(`${b.date}T${b.time}`)
+    );
   res.status(200).json(sorted);
 });
 
