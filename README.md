@@ -8,9 +8,9 @@ One of the core features is a simple **AI-like categorization** system: when cre
 
 ## 🔗 Live Website
 
-- 🌐 **Live Link:** [https://campcare-auth.web.app/](https://campcare-auth.web.app/)
-- 📁 **Client Repo:** [GitHub - Client](https://github.com/your-username/camp-care)
-- 🖥️ **Server Repo:** [GitHub - Server](https://github.com/your-username/campcare-server)
+- 🌐 **Live Link:** [https://eventflow-f24fa.web.app/](https://eventflow-f24fa.web.app/)
+- 📁 **Client & Server Repository:** [GitHub - Mini Event Scheduler](https://github.com/robinahmed12/mini-event-scheduler)
+
 
 ---
 
@@ -63,12 +63,16 @@ mini-event-scheduler/
 | DELETE | `/events/:id` | Delete an event by ID                      |
 
 ---
-
 ---
 
+## 👨‍💻 Author
 
-
-
+**Robin Ahmed**  
+Frontend Developer | JavaScript Enthusiast | MERN Stack Learner
+--📫 [shawonahmed0294@gmail.com](mailto:shawonahmed0294@gmail.com)  
+--🔗 [GitHub](https://github.com/robinahmed12) | [Portfolio](https://robinahmed.netlify.app) | [LinkedIn](https://linkedin.com/in/robinahmed12)
+---
+---
 
 ## 📌 Notes
 
@@ -76,20 +80,41 @@ mini-event-scheduler/
 - All data will reset when the server restarts.
 - Tailwind utility classes are used for styling archived cards in gray.
 ---
-### 1. Clone the Repository
-
-### 📁 Clone the Repository
+## 📁 1. Clone the Repository
 
 ```bash
-[git clone https://github.com/your-username/mini-event-scheduler.git](https://github.com/robinahmed12/mini-event-scheduler.git)
+git clone https://github.com/robinahmed12/mini-event-scheduler.git
 cd mini-event-scheduler
+<br>
 
-🖥️ Backend Setup
+🖥️ 2. Backend Setup
+Navigate to the server directory and install dependencies:
+
 bash
 Copy
 Edit
 cd server
 npm install
+
+🔐 Environment Variables
+Create a .env file in the server/ folder with the following content:
+npm start
+PORT=5000
+🚀 Start the Backend Server
+<br>
+
+
+🌐 4. Frontend Setup
+Navigate to the client directory and install dependencies:
+
+bash
+Copy
+Edit
+cd ../client
+npm install
+npm run dev
+
+<br>
 
 🧪 Run Unit Tests
 bash
@@ -97,6 +122,7 @@ Copy
 Edit
 npm test
 
+<br>
 
 ## 🧪 Testing
 
@@ -109,28 +135,7 @@ The AI categorization logic is tested using **Jest**.
 ```js
 expect(categorizeEvent("Client meeting", "Project update")).toBe("Work");
 
-
-🔐 Environment Variables
-Create a .env file in the server/ folder:
-
-ini
-Copy
-Edit
-PORT=5000
-🚀 Start the Backend Server
-bash
-Copy
-Edit
-npm start
-
- Frontend Setup
-bash
-Copy
-Edit
-cd client
-npm install
-npm run dev
-
+<br>
 
 ## 📦 Example Event Object
 
@@ -145,13 +150,4 @@ npm run dev
   "archived": false
 }
 --
----
 
-## 👨‍💻 Author
-
-**Robin Ahmed**  
-Frontend Developer | JavaScript Enthusiast | MERN Stack Learner
-
-📫 [shawonahmed0294@gmail.com](mailto:shawonahmed0294@gmail.com)  
-🔗 [GitHub](https://github.com/yourusername) | [Portfolio](https://yourportfolio.com) | [LinkedIn](https://linkedin.com/in/yourprofile)
----
