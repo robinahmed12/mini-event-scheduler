@@ -4,6 +4,7 @@ import useAxios from "../../hooks/useAxios.jsx";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const Events = () => {
   const axiosInstance = useAxios();
@@ -467,9 +468,9 @@ const Events = () => {
                 : "Try adjusting your filters to see more events."}
             </p>
             {events.length === 0 && (
-              <button className="px-8 py-4 bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-semibold rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+              <Link to={"/create"} className="px-8 py-4 bg-[#7C3AED] hover:bg-[#6D28D9] text-white font-semibold rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
                 Create First Event
-              </button>
+              </Link>
             )}
           </div>
         ) : (
