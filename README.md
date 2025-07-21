@@ -46,26 +46,34 @@ mini-event-scheduler/
 
 ---
 
-📡 API Endpoints
-Method	Endpoint	Description
-POST	/events	Create a new event with AI categorization
-GET	/events	Get all events, sorted by date & time
-PUT	/events/:id	Archive an event (sets archived: true)
-DELETE	/events/:id	Delete an event by ID
+## 📡 API Endpoints
+
+| Method | Endpoint      | Description                                |
+|--------|---------------|--------------------------------------------|
+| POST   | `/events`     | Create a new event with AI categorization  |
+| GET    | `/events`     | Get all events, sorted by date & time      |
+| PUT    | `/events/:id` | Archive an event (sets `archived: true`)   |
+| DELETE | `/events/:id` | Delete an event by ID                      |
 
 ---
 
 
-📝 Notes
-All event data is stored in-memory (will reset when the server restarts).
+## 📌 Notes
 
-Make sure both the client and server are running simultaneously.
+- Data is stored **in-memory** using a JavaScript array (no database).
+- All data will reset when the server restarts.
+- Tailwind utility classes are used for styling archived cards in gray.
 
 ---
 
-📧 Contact
-Created with ❤️ by Robin Ahmed
-GitHub • Portfolio • Email
+## 👨‍💻 Author
+
+**Robin Ahmed**  
+Frontend Developer | JavaScript Enthusiast | MERN Stack Learner
+
+📫 [shawonahmed0294@gmail.com](mailto:shawonahmed0294@gmail.com)  
+🔗 [GitHub](https://github.com/yourusername) | [Portfolio](https://yourportfolio.com) | [LinkedIn](https://linkedin.com/in/yourprofile)
+
 
 ---
 ### 1. Clone the Repository
@@ -78,3 +86,16 @@ cd server
 npm install
 npm run dev
 The backend will run on http://localhost:5000.
+
+## 📦 Example Event Object
+
+```json
+{
+  "id": "abc123",
+  "title": "Client Meeting",
+  "date": "2025-07-21",
+  "time": "14:00",
+  "notes": "Discuss project timeline",
+  "category": "Work",
+  "archived": false
+}
