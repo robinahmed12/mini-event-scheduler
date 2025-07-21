@@ -1,8 +1,16 @@
-# 🗓️ Mini Event Scheduler
+# 🗓️ Event Flow
 
-The **Mini Event Scheduler** is a full-stack web application built with **React**, **Tailwind CSS**, **Express.js**, and **Node.js**. It allows users to **create**, **view**, **archive**, and **delete** events such as meetings, reminders, and personal tasks.
+The **Event Flow** is a full-stack web application built with **React**, **Tailwind CSS**, **Express.js**, and **Node.js**. It allows users to **create**, **view**, **archive**, and **delete** events such as meetings, reminders, and personal tasks.
 
 One of the core features is a simple **AI-like categorization** system: when creating an event, the backend automatically classifies it as **Work**, **Personal**, or **Other** based on keywords found in the title or notes.
+
+---
+
+## 🔗 Live Website
+
+- 🌐 **Live Link:** [https://campcare-auth.web.app/](https://campcare-auth.web.app/)
+- 📁 **Client Repo:** [GitHub - Client](https://github.com/your-username/camp-care)
+- 🖥️ **Server Repo:** [GitHub - Server](https://github.com/your-username/campcare-server)
 
 ---
 
@@ -34,14 +42,13 @@ On event creation, the backend automatically categorizes the event as:
 
 ---
 
-## 🖥️ Local Setup Instructions
 
 ### 📁 Folder Structure
 
 mini-event-scheduler/
-├── client/ # React frontend
-├── server/ # Node.js backend
+-├── client/ # React frontend
 
+-├── server/ # Node.js backend
 
 
 ---
@@ -57,35 +64,73 @@ mini-event-scheduler/
 
 ---
 
+---
+
+
+
+
 
 ## 📌 Notes
 
 - Data is stored **in-memory** using a JavaScript array (no database).
 - All data will reset when the server restarts.
 - Tailwind utility classes are used for styling archived cards in gray.
-
----
-
-## 👨‍💻 Author
-
-**Robin Ahmed**  
-Frontend Developer | JavaScript Enthusiast | MERN Stack Learner
-
-📫 [shawonahmed0294@gmail.com](mailto:shawonahmed0294@gmail.com)  
-🔗 [GitHub](https://github.com/yourusername) | [Portfolio](https://yourportfolio.com) | [LinkedIn](https://linkedin.com/in/yourprofile)
-
-
 ---
 ### 1. Clone the Repository
 
+### 📁 Clone the Repository
+
 ```bash
-git clone https://github.com/yourusername/mini-event-scheduler.git
+[git clone https://github.com/your-username/mini-event-scheduler.git](https://github.com/robinahmed12/mini-event-scheduler.git)
 cd mini-event-scheduler
 
+🖥️ Backend Setup
+bash
+Copy
+Edit
 cd server
 npm install
+
+🧪 Run Unit Tests
+bash
+Copy
+Edit
+npm test
+
+
+## 🧪 Testing
+
+### ✅ categorizeEvent Function
+
+The AI categorization logic is tested using **Jest**.
+
+**Example test case:**
+
+```js
+expect(categorizeEvent("Client meeting", "Project update")).toBe("Work");
+
+
+🔐 Environment Variables
+Create a .env file in the server/ folder:
+
+ini
+Copy
+Edit
+PORT=5000
+🚀 Start the Backend Server
+bash
+Copy
+Edit
+npm start
+
+ Frontend Setup
+bash
+Copy
+Edit
+cd client
+npm install
 npm run dev
-The backend will run on http://localhost:5000.
+
 
 ## 📦 Example Event Object
 
@@ -99,3 +144,14 @@ The backend will run on http://localhost:5000.
   "category": "Work",
   "archived": false
 }
+--
+---
+
+## 👨‍💻 Author
+
+**Robin Ahmed**  
+Frontend Developer | JavaScript Enthusiast | MERN Stack Learner
+
+📫 [shawonahmed0294@gmail.com](mailto:shawonahmed0294@gmail.com)  
+🔗 [GitHub](https://github.com/yourusername) | [Portfolio](https://yourportfolio.com) | [LinkedIn](https://linkedin.com/in/yourprofile)
+---
