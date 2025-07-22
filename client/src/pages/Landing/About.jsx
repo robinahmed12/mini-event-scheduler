@@ -17,6 +17,7 @@ import {
   HiOutlineLightBulb,
   HiOutlineGlobeAlt,
 } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 const About = () => {
   const stats = [
@@ -72,12 +73,13 @@ const About = () => {
               data-aos-delay="300"
               className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             >
-              <button className="bg-[#7C3AED] hover:bg-[#6D28D9] text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
+              <Link to={"/create"}
+               className="bg-[#7C3AED] hover:bg-[#6D28D9] text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl">
                 Get Started
-              </button>
-              <button className="border-2 border-[#7C3AED] text-[#7C3AED] hover:bg-[#7C3AED] hover:text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300">
+              </Link>
+              <Link to={"/events"} className="border-2 border-[#7C3AED] text-[#7C3AED] hover:bg-[#7C3AED] hover:text-white px-8 py-4 rounded-2xl font-semibold text-lg transition-all duration-300">
                 View Demo
-              </button>
+              </Link>
             </div>
           </div>
         </div>

@@ -13,6 +13,7 @@ import {
   FolderSync,
 } from "lucide-react";
 import "aos/dist/aos.css";
+import { Link } from "react-router-dom";
 
 const KeyFeatures = () => {
   useEffect(() => {
@@ -173,10 +174,10 @@ const KeyFeatures = () => {
                 Join thousands of users who have already revolutionized their
                 time management with our intelligent event scheduler.
               </p>
-              <button className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#7C3AED] to-[#EC4899] text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 group">
+              <Link to={"/events"} className="inline-flex items-center justify-center px-8 py-4 bg-gradient-to-r from-[#7C3AED] to-[#EC4899] text-white font-semibold rounded-2xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 group">
                 <span>Get Started Today</span>
                 <Zap className="w-5 h-5 ml-2 group-hover:rotate-12 transition-transform duration-300" />
-              </button>
+              </Link>
             </div>
           </div>
         </div>

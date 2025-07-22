@@ -11,6 +11,7 @@ import {
 } from "react-icons/fi";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { Link } from "react-router-dom";
 
 const Banner = () => {
   useEffect(() => {
@@ -61,19 +62,20 @@ const Banner = () => {
               data-aos="fade-right"
               data-aos-delay="200"
             >
-              <button className="group bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] hover:from-[#6D28D9] hover:to-[#5B21B6] text-white px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-3 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#7C3AED]/25 transform hover:-translate-y-1">
+              <Link to={"/create"}
+               className="group bg-gradient-to-r from-[#7C3AED] to-[#6D28D9] hover:from-[#6D28D9] hover:to-[#5B21B6] text-white px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-3 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-[#7C3AED]/25 transform hover:-translate-y-1">
                 <FiPlus className="text-lg group-hover:rotate-90 transition-transform duration-300" />
                 Create Your First Event
                 <div className="w-0 group-hover:w-6 transition-all duration-300 overflow-hidden">
                   <FiArrowRight className="text-lg" />
                 </div>
-              </button>
+              </Link>
 
-              <button className="group border-2 border-[#7C3AED]/20 hover:border-[#7C3AED] text-[#7C3AED] hover:bg-[#7C3AED]/5 px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-3 transition-all duration-300">
+              <Link to={"/events"} className="group border-2 border-[#7C3AED]/20 hover:border-[#7C3AED] text-[#7C3AED] hover:bg-[#7C3AED]/5 px-8 py-4 rounded-xl font-semibold flex items-center justify-center gap-3 transition-all duration-300">
                 <FiCalendar className="text-lg group-hover:scale-110 transition-transform duration-300" />
                 View Demo
                 <FiArrowRight className="text-lg group-hover:translate-x-1 transition-transform duration-300" />
-              </button>
+              </Link>
             </div>
 
             {/* Features */}
